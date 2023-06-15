@@ -25,7 +25,8 @@ const RouteSwitch = () => {
         <Route path="/about-bulgaria" element={<AboutBulgaria />} />
         <Route path="/about" element={<About />} />
         <Route path="/checkout/:checkoutStatus" element={<Checkout />} />
-        <Route path="/*" element={<NotFound />} />
+        <Route path="notfound" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/notfound" replace />} />
       </Routes>
       <Footer />
     </BrowserRouter>

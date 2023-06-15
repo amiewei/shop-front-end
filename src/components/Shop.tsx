@@ -3,6 +3,7 @@ import ItemDetail from "./ItemDetail";
 import { Search } from "./Search";
 import { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../contexts/product/ProductContextProvider";
+import { Spinner } from "flowbite-react";
 
 const Shop = () => {
   const { products } = useContext(ProductContext);
@@ -36,29 +37,40 @@ const Shop = () => {
           </div>
         </div>
       </section>
-      <section className="w-full bg-secondary-50 dark:bg-gray-900">
-        <div className="container mx-auto grid h-auto min-h-[70vh] max-w-screen-md gap-5 px-8 lg:mb-10 lg:max-w-screen-xl lg:p-6">
-          <div className="grid gap-10 pb-12 pt-12 sm:grid-cols-1 lg:grid-cols-4 lg:pb-12">
-            {filteredList.map((product) => {
-              return (
-                <div key={product.id}>
-                  <ItemDetail
-                    product={product}
-                    cardClass={
-                      "grid grid-cols-1 lg:h-[26rem] flex flex-col h-full"
-                    }
-                    aTagClass={"lg:flex-1/3 lg:block"}
-                    flexClass1={"lg:flex-2/3"}
-                    flexClass2={"lg:flex-1/2"}
-                    flexClass3={"lg:flex-1/4"}
-                    buttonDivClass={
-                      "left-1/2 lg:w-1/2 lg:left-1/2 lg:flex lg:w-full lg:-translate-x-1/2 lg:transform lg:flex-col"
-                    }
-                  />
-                </div>
-              );
-            })}
-          </div>
+      <section className="min-h-[70vh] w-full bg-secondary-50 dark:bg-gray-900">
+        <div className="h-100 container mx-auto grid max-w-screen-md gap-5 px-8 lg:mb-10 lg:max-w-screen-xl lg:p-6">
+          {products.length === 0 ? (
+            <div className="py-20 text-center">
+              <Spinner
+                color="info"
+                size="xl"
+                aria-label="Product Spinner Loading"
+                className="h-20 w-20"
+              />
+            </div>
+          ) : (
+            <div className="grid gap-10 pb-12 pt-12 sm:grid-cols-1 lg:grid-cols-4 lg:pb-12">
+              {filteredList.map((product) => {
+                return (
+                  <div key={product.id}>
+                    <ItemDetail
+                      product={product}
+                      cardClass={
+                        "grid grid-cols-1 lg:h-[26rem] flex flex-col h-full"
+                      }
+                      aTagClass={"lg:flex-1/3 lg:block"}
+                      flexClass1={"lg:flex-2/3"}
+                      flexClass2={"lg:flex-1/2"}
+                      flexClass3={"lg:flex-1/4"}
+                      buttonDivClass={
+                        "left-1/2 lg:w-1/2 lg:left-1/2 lg:flex lg:w-full lg:-translate-x-1/2 lg:transform lg:flex-col"
+                      }
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </section>
     </>

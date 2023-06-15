@@ -155,7 +155,6 @@ export function Home() {
           <div className="mx-auto grid gap-5 lg:mb-10 lg:max-w-screen-xl ">
             {/* ---------------Popular Individual Item START------------*/}
             {products.length === 0 ? (
-              // <div className="flex flex-col gap-2">
               <div className="text-center">
                 <Spinner
                   color="info"

@@ -8,11 +8,10 @@ export function SystemMessage({ sysMsg }: { sysMsg: SysMsg }) {
     colorClass =
       " bg-green-50 text-green-800 dark:bg-gray-800 dark:text-green-400";
     shortSysMessage = "Success! ";
-  } else if ((sysMsg.statusCode as number) >= 300) {
+  } else {
     colorClass =
       " bg-yellow-50 text-yellow-800 dark:bg-gray-800 dark:text-yellow-400";
     shortSysMessage = "Error: ";
-  } else {
   }
   return (
     <div className={`mb-4 rounded-lg ${colorClass} py-4 text-sm`} role="alert">

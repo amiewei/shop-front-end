@@ -6,9 +6,9 @@ import App from "./App";
 import Checkout from "./components/checkout/Checkout";
 import ScrollToTopOnMount from "./utilities/scrolltop";
 import About from "./components/About";
-import Redirect from "./components/utility-components/redirect";
 import AboutBulgaria from "./components/AboutBulgaria";
 import NavbarComponent from "./components/Navbar";
+import NotFound from "./components/ErrorPage";
 
 const RouteSwitch = () => {
   return (
@@ -18,7 +18,6 @@ const RouteSwitch = () => {
       <NavbarComponent />
 
       <Routes>
-        <Route path="/*" element={<Redirect />} />
         <Route path="/home" element={<App />} />
         <Route path="/" element={<Navigate replace to="/home" />} />
         <Route path="/shop" element={<Shop />} />
@@ -26,6 +25,7 @@ const RouteSwitch = () => {
         <Route path="/about-bulgaria" element={<AboutBulgaria />} />
         <Route path="/about" element={<About />} />
         <Route path="/checkout/:checkoutStatus" element={<Checkout />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

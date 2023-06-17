@@ -40,9 +40,9 @@ export default function ItemDetail({
   };
 
   const currentCartItemQty = (product: Product) => {
-    const currentItem = cartItems.filter(
+    const currentItem = cartItems.find(
       (item: CartItem) => item.id === product.id
-    )[0];
+    );
     if (currentItem) {
       return currentItem.qty;
     }

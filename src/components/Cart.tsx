@@ -1,10 +1,10 @@
 import CartContext from "../contexts/cart/CartContext";
 import { useContext, ChangeEvent, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const Cart = () => {
-  const { cartItems, clearCart, totalPrice, decreaseQty, increaseQty } =
+  const { cartItems, totalPrice, decreaseQty, increaseQty } =
     useContext(CartContext);
 
   const handleCheckOutProcess = async () => {
@@ -15,24 +15,21 @@ const Cart = () => {
       })
     );
 
-    //initiate stripe checkout and also clear cart (clear cart only when checkout is successful?)
-    (async () => {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_DB_URL}/api/create-checkout-session`,
-        {
-          cart: checkoutItems,
-        }
-      );
-
-      if (response.status === 200) {
-        const redirectCheckoutUrl = response.data;
-        window.location.href = redirectCheckoutUrl;
-        // navigate(`/${redirectCheckoutUrl}`);
-        return;
-      } else {
-        throw Error("Error With Checkout");
+    //initiate stripe checkout
+    const response = await axios.post(
+      `${import.meta.env.VITE_BACKEND_DB_URL}/api/create-checkout-session`,
+      {
+        cart: checkoutItems,
       }
-    })();
+    );
+
+    if (response.status === 200) {
+      const redirectCheckoutUrl = response.data;
+      window.location.href = redirectCheckoutUrl;
+      return;
+    } else {
+      throw Error("Error With Checkout");
+    }
   };
 
   return (

@@ -28,10 +28,11 @@ const Shop = () => {
             </p>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
               <Search
-                inputField={inputField}
-                setInputField={setInputField}
+                handleSearch={(inputItem, filteredProducts) => {
+                  setInputField(inputItem ?? "");
+                  setFilteredList(filteredProducts);
+                }}
                 products={products}
-                setFilteredList={setFilteredList}
               />
             </div>
           </div>
@@ -70,6 +71,11 @@ const Shop = () => {
                 );
               })}
             </div>
+          )}
+          {filteredList?.length === 0 && products?.length > 0 && (
+            <h1 className="text-center text-lg text-primary-200">
+              Hmm... We do not offer this item yet, try searching something else
+            </h1>
           )}
         </div>
       </section>

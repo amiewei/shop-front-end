@@ -38,8 +38,8 @@ const Shop = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[70vh] w-full bg-secondary-50 dark:bg-gray-900">
-        <div className="h-100 container mx-auto grid max-w-screen-md gap-5 px-8 lg:mb-10 lg:max-w-screen-xl lg:p-6">
+      <section className="h-full min-h-[75vh] w-full bg-secondary-50 py-10 dark:bg-gray-900">
+        <div className="container mx-auto grid max-w-screen-md gap-5 px-8 lg:mb-10 lg:max-w-screen-xl lg:p-6">
           {products.length === 0 ? (
             <div className="py-20 text-center">
               <Spinner

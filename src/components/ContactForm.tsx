@@ -146,7 +146,11 @@ export default function ContactForm() {
           <p className="my-10 text-center text-2xl font-light text-gray-500 dark:text-gray-400 lg:mb-16 lg:text-xl">
             Have Questions? Leave Us A Message!
           </p>
-          <form onSubmit={onSubmit} id="contact-form" className="space-y-4">
+          <form
+            onSubmit={onSubmit}
+            id="contact-form"
+            className="space-y-4 lg:pb-10"
+          >
             <div className="flex w-full flex-col gap-5 lg:flex-row">
               <div className="flex gap-4 lg:flex-initial">
                 <div className="lg:flex-col">

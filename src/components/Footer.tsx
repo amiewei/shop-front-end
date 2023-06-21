@@ -3,7 +3,7 @@ export default function Footer() {
   return (
     <footer className="bg-primary-400 p-4 dark:bg-gray-800 sm:p-6">
       <div className="mx-auto max-w-screen-md lg:max-w-screen-xl">
-        <div className="my-6 flex flex-col md:flex md:justify-between lg:flex-row">
+        <div className="flex flex-col py-6 md:flex md:justify-between lg:flex-row">
           <div className="mt-0 md:mb-0">
             <a
               href="/"

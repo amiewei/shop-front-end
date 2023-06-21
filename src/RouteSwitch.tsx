@@ -16,7 +16,6 @@ const RouteSwitch = () => {
       {/* ScrollToTopOnMount - upon clicking new page, will always start at top of page */}
       <ScrollToTopOnMount />
       <NavbarComponent />
-
       <Routes>
         <Route path="/home" element={<App />} />
         <Route path="/" element={<Navigate replace to="/home" />} />
